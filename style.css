@@ -1,0 +1,361 @@
+/* style.css */
+
+:root {
+    --primary-color: #FFFFFF; /* Warna putih untuk teks dan elemen utama */
+    --secondary-color: #333333; /* Warna abu-abu gelap untuk elemen sekunder */
+    --background-color: #000000; /* Warna hitam solid untuk latar belakang */
+    --highlight-color: #87CEEB; /* Warna biru muda untuk aksen, sesuai efek logo */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    color: var(--primary-color); /* Semua teks default menjadi putih */
+}
+
+.container {
+    width: 80%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+/* --- Header/Navbar Styling --- */
+header {
+    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparan agar terlihat elegan */
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+}
+
+.logo img {
+    height: 30px; /* Sesuaikan ukuran logo di navbar */
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li a {
+    color: var(--primary-color);
+    text-decoration: none;
+    padding: 10px 15px;
+    display: block;
+}
+
+.nav-links li a:hover {
+    color: var(--highlight-color);
+}
+
+/* --- Hero Section (Tampilan Awal) Styling --- */
+.hero-section {
+    /* Mengatur Image 4 (IMG_2824.jpg) sebagai background */
+    background: url('IMG_2824.JPG') no-repeat center center/cover;
+    height: 100vh; /* Tinggi penuh viewport */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    /* Efek gelap/overlay agar teks dan logo BRW terlihat jelas */
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7); /* Overlay hitam 70% */
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-content p {
+    font-size: 1.5em;
+}
+
+.main-logo {
+    width: 300px; /* Ukuran logo BRW besar */
+    margin: 20px 0;
+}
+
+.contact-button {
+    background-color: transparent;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    padding: 10px 20px;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+}
+
+.contact-button:hover {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+}
+
+
+/* style.css */
+
+/* --- About Section Styling REVISI --- */
+.about-section {
+    padding: 50px;
+    min-height: 50px;
+}
+
+.about-section .container {
+    display: flex;
+    align-items: flex-start; /* Ubah ke flex-start agar foto dan teks sejajar dari atas */
+    gap: 60px; /* Tambah jarak antar foto dan teks */
+}
+
+/* Penyesuaian Foto */
+.about-image {
+    flex: 0 0 350px; /* Atur lebar tetap untuk foto (misal 350px) */
+    max-width: 35%;
+    text-align: left; /* Teks (jika ada) di bawah foto akan rata kiri */
+}
+
+.about-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px; 
+    /* Pastikan gambar profil Anda berlatar hitam/transparan agar menyatu dengan background web hitam */
+}
+
+/* Penyesuaian Teks */
+.about-text {
+    flex: 1; /* Memastikan teks mengisi sisa ruang */
+    padding-top: 10px; /* Sedikit geser ke bawah agar judul rata dengan mata foto */
+}
+
+/* Ukuran Font Judul About Me LEBIH BESAR */
+.about-text h2 {
+    font-size: 3em; /* Ukuran font yang signifikan lebih besar */
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+/* Target paragraf deskripsi di bagian About Me */
+.about-text p {
+    font-size: 1.15em; /* NAIKKAN UKURAN FONT: Dari default (biasanya 1em) menjadi sedikit lebih besar. Coba 1.1em atau 1.2em. */
+    line-height: 1.6; /* KURANGI JARAK ANTAR BARIS: Kurangi dari default browser (biasanya 1.5-1.7) agar baris lebih rapat. Coba 1.4 atau 1.6. */
+    margin-bottom: 25px; /* Jarak antara paragraf dan tautan CV */
+    
+    /* Anda juga bisa mengatur lebar maksimum paragraf jika terlalu melebar di layar besar */
+    /* max-width: 800px; */ 
+}
+
+/* Penyesuaian Tautan My CV (Sekarang di bawah teks deskripsi) */
+.cv-link {
+    color: var(--highlight-color); /* Contoh: warna biru muda */
+    text-decoration: none;
+    display: inline-block; /* Agar bisa diatur posisinya */
+    margin-top: 25px; /* Jarak dari teks deskripsi di atasnya */
+    font-weight: bold;
+    font-size: 1.1em;
+    transition: color 0.3s;
+}
+
+.cv-link:hover {
+    color: var(--primary-color);
+}
+
+
+/* --- Media Queries (Pastikan responsif tetap berfungsi baik) --- */
+@media (max-width: 768px) {
+    .about-section .container {
+        flex-direction: column;
+        align-items: center; /* Pusatkan elemen saat di mode mobile */
+        gap: 30px;
+    }
+    
+    .about-image {
+        max-width: 80%; /* Lebar foto di mobile */
+    }
+
+    .about-text {
+        text-align: center; /* Pusatkan teks di mobile */
+        padding-top: 0;
+    }
+}
+
+
+/* --- Skills & Experiences Section Styling --- */
+.skills-experiences-section {
+    padding: 50px 0;
+    background-color: var(--secondary-color); /* Warna abu-abu gelap */
+}
+
+.skills-experiences-section .container {
+    display: flex;
+    gap: 50px;
+}
+
+.skills-column, .experiences-column {
+    flex: 1;
+}
+
+.skill-item, .experience-item {
+    margin-bottom: 30px;
+}
+
+.skill-item h3, .experience-item h3 {
+    color: var(--highlight-color);
+    margin-top: 0;
+}
+
+/* Ganti ikon dengan style yang sesuai */
+.icon-graphic-design, .icon-coding, .icon-photo, .icon-experience {
+    font-size: 2em;
+    display: block;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+}
+
+/* --- Footer Styling (Mengikuti Image 3) --- */
+.footer-section {
+    background-color: #1a1a1a; /* Warna hitam agak terang sedikit */
+    padding-top: 50px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #444;
+}
+
+.footer-links, .footer-contact {
+    width: 45%;
+}
+
+.footer-links h3, .footer-contact h3 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links ul li a {
+    color: #aaaaaa; /* Teks abu-abu muda */
+    text-decoration: none;
+    line-height: 2;
+}
+
+.footer-contact p {
+    color: #aaaaaa;
+    margin: 5px 0;
+}
+
+.footer-contact p span {
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+/* style.css */
+
+.social-icons {
+    display: flex; /* Menggunakan flexbox untuk menata ikon */
+    justify-content: center; /* Pusatkan ikon jika ada ruang */
+    margin-top: 15px;
+    gap: 15px; /* Memberi jarak antar ikon */
+}
+
+.social-icons a {
+    /* Hapus style border, width, height, line-height, dll. yang sebelumnya untuk teks */
+    display: flex; /* Gunakan flex untuk memusatkan gambar di dalam link */
+    justify-content: center;
+    align-items: center;
+    width: 40px; /* Ukuran dasar untuk area ikon */
+    height: 40px; /* Ukuran dasar untuk area ikon */
+    border-radius: 50%; /* Membuat bentuk lingkaran */
+    background-color: var(--primary-color); /* Background putih untuk lingkaran */
+    text-decoration: none;
+    transition: transform 0.2s ease-in-out;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.social-icons a:hover {
+    transform: translateY(-5px); /* Efek sedikit naik saat dihover */
+}
+
+.social-icons a img {
+    width: 24px; /* Ukuran logo di dalam lingkaran */
+    height: 24px; /* Sesuaikan agar gambar tidak terdistorsi */
+    object-fit: contain; /* Pastikan gambar pas di dalam area tanpa terpotong */
+    /* Beberapa logo mungkin perlu penyesuaian warna jika backgroundnya bukan transparan */
+    /* Contoh: Jika logo TikTok background hitam dan lingkaran putih, Anda mungkin ingin membiarkannya */
+}
+
+/* Override untuk LinkedIn dan X jika Anda ingin background ikon sesuai warna brand */
+
+
+.social-icons a[aria-label="X (Twitter)"] img {
+    filter: invert(1); /* Logo X Anda putih, tidak perlu invert */
+    /* Pastikan logo X Anda adalah versi putih */
+}
+.copyright {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #000000; /* Hitam solid untuk baris copyright */
+    color: #aaaaaa;
+    font-size: 0.9em;
+}
+
+/* Media Queries untuk Responsif (Penting!) */
+@media (max-width: 768px) {
+    .hero-section {
+        height: 80vh;
+    }
+    
+    .about-section .container,
+    .skills-experiences-section .container,
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .about-image, .about-text,
+    .footer-links, .footer-contact {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+
+    .about-section .container {
+        gap: 20px;
+    }
+
+    .nav-links {
+        display: none; /* Sembunyikan menu di mobile, bisa diganti dengan menu hamburger */
+    }
+
+    nav {
+        justify-content: center;
+    }
+}
