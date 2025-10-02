@@ -1,3 +1,4 @@
+
 /* style.css */
 
 :root {
@@ -8,7 +9,7 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Inter', sans-serif;
     margin: 0;
     padding: 0;
     background-color: var(--background-color);
@@ -151,7 +152,8 @@ nav {
 
 /* Ukuran Font Judul About Me LEBIH BESAR */
 .about-text h2 {
-    font-size: 3em; /* Ukuran font yang signifikan lebih besar */
+    font-family: 'Inter', sans-serif; /* JUDUL H2 MENGGUNAKAN INTER */
+    font-size: 3em;
     margin-top: 0;
     margin-bottom: 20px;
     font-weight: bold;
@@ -238,46 +240,76 @@ nav {
 /* --- Footer Styling (Mengikuti Image 3) --- */
 .footer-section {
     background-color: #1a1a1a; /* Warna hitam agak terang sedikit */
-    padding-top: 50px;
+    padding-top: 5px;
 }
 
 .footer-content {
     display: flex;
-    justify-content: space-between;
+    justify-content: center; /* MEMUSATKAN KONTEN FOOTER */
+    align-items: flex-start; /* Konten dimulai dari atas */
     padding-bottom: 30px;
     border-bottom: 1px solid #444;
 }
 
-.footer-links, .footer-contact {
-    width: 45%;
+/* HAPUS .footer-links, .footer-contact */
+/* Ganti dengan gaya untuk elemen tunggal yang terpusat */
+.footer-contact.centered-content { /* Menggunakan class baru yang ditambahkan di HTML */
+    width: 100%; /* Agar mengambil lebar penuh di flex container */
+    max-width: 400px; /* Batasi lebar agar tidak terlalu melebar di desktop */
+    text-align: center; /* Memusatkan teks di dalamnya */
 }
 
-.footer-links h3, .footer-contact h3 {
+.footer-contact h3 {
     color: var(--primary-color);
     margin-bottom: 20px;
-}
-
-.footer-links ul {
-    list-style: none;
-    padding: 0;
-}
-
-.footer-links ul li a {
-    color: #aaaaaa; /* Teks abu-abu muda */
-    text-decoration: none;
-    line-height: 2;
+    font-size: 1.8em; /* Sedikit lebih besar untuk judul utama */
 }
 
 .footer-contact p {
     color: #aaaaaa;
-    margin: 5px 0;
+    margin: 8px 0; /* Tambah jarak vertikal antar paragraf */
+    font-size: 1.05em; /* Sedikit perbesar ukuran font */
 }
 
+/* Hapus bagian ini karena sudah tidak ada <span>contact me</span>
 .footer-contact p span {
     font-weight: bold;
     color: var(--primary-color);
 }
+*/
 
+.social-icons {
+    display: flex;
+    justify-content: center; /* MEMUSATKAN ICON SOSIAL */
+    margin-top: 25px; /* Tambah jarak dari teks di atasnya */
+    gap: 15px;
+}
+
+/* ... (sisanya dari social-icons styling tetap sama) ... */
+
+.copyright {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #000000;
+    color: #aaaaaa;
+    font-size: 0.9em;
+}
+
+/* Media Queries untuk Responsif (Penting!) */
+@media (max-width: 768px) {
+    /* ... (gaya media query lainnya tetap sama) ... */
+
+    .footer-content {
+        flex-direction: column; /* Tetap kolom di mobile */
+        text-align: center;
+        align-items: center;
+    }
+    
+    .footer-contact.centered-content {
+        width: 90%; /* Lebar di mobile */
+        margin-bottom: 0; /* Hapus margin-bottom jika hanya ada satu kolom */
+    }
+}
 /* style.css */
 
 .social-icons {
@@ -357,5 +389,293 @@ nav {
 
     nav {
         justify-content: center;
+    }
+}
+
+/* style.css - Tambahkan kode ini di bagian bawah file CSS Anda */
+
+/* --- Certificates Section Styling --- */
+.certificates-section {
+    padding: 80px 0; /* Memberi padding atas dan bawah */
+    background-color: var(--background-color); /* Tetap hitam solid */
+    text-align: center;
+}
+
+.certificates-section h2 {
+    /* Gaya font sama dengan judul section lainnya (misal: Playfair Display) */
+    font-family: 'Inter', sans-serif;
+    font-size: 2.5em; 
+    margin-bottom: 50px;
+    color: var(--primary-color);
+}
+
+.certificate-gallery {
+    display: flex; /* Mengatur item secara horizontal */
+    justify-content: space-around; /* Jarak yang merata antar item */
+    gap: 30px; /* Jarak antara kolom */
+    flex-wrap: wrap; /* Penting untuk responsif di layar kecil */
+}
+
+.certificate-item {
+    flex: 1; /* Setiap item mengambil porsi yang sama dari ruang yang tersedia */
+    min-width: 250px; /* Lebar minimum agar tidak terlalu kecil */
+    max-width: 300px; /* Lebar maksimum untuk setiap kolom */
+    text-align: center;
+    padding: 15px;
+    border: 1px solid var(--secondary-color); /* Border tipis untuk pemisah */
+    transition: transform 0.3s ease;
+}
+
+.certificate-item:hover {
+    transform: translateY(-5px); /* Efek visual saat di-hover */
+}
+
+.certificate-img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.05); /* Bayangan lembut */
+}
+
+.certificate-item p {
+    font-size: 1em;
+    font-weight: 500;
+    margin-top: 15px;
+    color: var(--highlight-color); /* Gunakan warna aksen untuk nama sertifikat */
+}
+
+/* Penyesuaian Responsif untuk Tampilan Sertifikat */
+@media (max-width: 768px) {
+    .certificate-gallery {
+        flex-direction: column; /* Ubah ke susunan vertikal di mobile */
+        align-items: center;
+    }
+
+    .certificate-item {
+        max-width: 90%; /* Lebar penuh di mobile */
+        margin-bottom: 30px;
+    }
+}
+
+/* style.css - Tambahkan kode ini di bagian bawah file CSS Anda */
+
+/* --- Gallery Section Styling --- */
+.gallery-section {
+    padding: 80px 0;
+    background-color: var(--secondary-color); /* Beri warna background abu gelap agar kontras dengan section Sertifikat (hitam) */
+    text-align: center;
+}
+
+.gallery-section h2 {
+    /* Gaya font sama dengan judul section lainnya (Playfair Display) */
+    font-family: 'Inter', sans-serif;
+    font-size: 2.5em; 
+    margin-bottom: 10px;
+    color: var(--primary-color);
+}
+
+.gallery-section .subtitle {
+    font-family: 'Inter', sans-serif;
+    font-size: 1em;
+    color: #aaa; /* Warna abu-abu terang */
+    margin-bottom: 50px;
+}
+
+.photo-gallery {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    flex-wrap: wrap; 
+}
+
+.photo-item {
+    flex: 1; 
+    min-width: 250px; 
+    max-width: 350px; /* Ukuran yang sedikit lebih besar dari sertifikat */
+    text-align: center;
+    overflow: hidden; /* Penting untuk efek gambar */
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+}
+
+.gallery-img {
+    width: 100%;
+    height: 400px; /* Atur tinggi tetap agar semua gambar memiliki tinggi yang seragam */
+    object-fit: cover; /* Memastikan gambar mengisi area tanpa terdistorsi (akan memotong jika rasio tidak sama) */
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.gallery-img:hover {
+    transform: scale(1.05); /* Zoom in saat di-hover */
+}
+
+/* Penyesuaian Responsif untuk Galeri Foto */
+@media (max-width: 768px) {
+    .photo-gallery {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .photo-item {
+        max-width: 90%;
+        margin-bottom: 20px;
+    }
+
+    .gallery-img {
+        height: 300px; /* Tinggi gambar lebih kecil di mobile */
+    }
+}
+
+/* style.css - Tambahkan kode ini di bagian bawah file CSS Anda */
+
+/* --- Documentation Section Styling --- */
+.documentation-section {
+    padding: 80px 0;
+    background-color: var(--background-color); /* Kembali ke hitam solid */
+    text-align: center;
+}
+
+.documentation-section h2 {
+    font-family: 'Inter', sans-serif;
+    font-size: 2.5em; 
+    margin-bottom: 10px;
+    color: var(--primary-color);
+}
+
+.documentation-section .subtitle {
+    font-family: 'Inter', sans-serif;
+    font-size: 1em;
+    color: #aaa;
+    margin-bottom: 50px;
+}
+
+.doc-grid {
+    display: grid;
+    /* Membuat grid dengan 2 kolom yang sama lebar */
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); 
+    gap: 20px;
+    padding: 0 5%;
+}
+
+.doc-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+}
+
+.doc-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Memastikan gambar mengisi area */
+    display: block;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.doc-item:hover .doc-img {
+    transform: scale(1.03); /* Zoom in saat di-hover */
+    opacity: 0.8; /* Sedikit gelap saat di-hover */
+}
+
+/* Caption Teks di Bawah Gambar */
+.caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.7); /* Background gelap transparan */
+    color: var(--primary-color);
+    padding: 10px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9em;
+    font-weight: 500;
+    text-align: center;
+}
+
+/* Penyesuaian Responsif untuk Dokumentasi */
+@media (max-width: 900px) {
+    /* Untuk layar menengah, grid tetap 1 kolom jika area kurang dari 400px */
+    .doc-grid {
+        grid-template-columns: 1fr;
+        padding: 0 10px;
+    }
+
+    .doc-item {
+        margin: 0 auto;
+        max-width: 95%;
+    }
+}
+
+/* style.css - Tambahkan kode ini setelah section Skills & Experiences */
+
+/* --- Projects Section Styling --- */
+.projects-section {
+    padding: 80px 0;
+    background-color: var(--secondary-color); /* Warna background abu gelap agar kontras */
+    text-align: center;
+}
+
+.projects-section h2 {
+    font-family: 'Inter', sans-serif;
+    font-size: 2.5em; 
+    margin-bottom: 10px;
+    color: var(--primary-color);
+}
+
+.projects-section .subtitle {
+    font-family: 'Inter', sans-serif;
+    font-size: 1em;
+    color: #aaa;
+    margin-bottom: 50px;
+}
+
+.project-grid {
+    display: grid;
+    /* Membuat grid responsif dengan 3 kolom di layar besar, dan 1 kolom minimum 300px */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 30px; /* Jarak antar kolom dan baris */
+    padding: 0 5%;
+}
+
+.project-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+    background-color: #1a1a1a; /* Background untuk item proyek */
+}
+
+.project-img {
+    width: 100%;
+    /* Set tinggi tetap atau rasio aspek yang konsisten untuk tampilan yang rapi */
+    height: 400px; 
+    object-fit: cover; 
+    display: block;
+    transition: opacity 0.3s ease;
+}
+
+.project-item:hover .project-img {
+    opacity: 0.8; 
+}
+
+/* Caption Teks di Bawah Gambar */
+.project-item .caption {
+    padding: 15px;
+    color: var(--primary-color);
+    font-family: 'Poppins', sans-serif;
+    font-size: 1em;
+    font-weight: 500;
+    text-align: center;
+}
+
+/* Penyesuaian Responsif untuk Proyek */
+@media (max-width: 768px) {
+    .project-grid {
+        grid-template-columns: 1fr; /* Satu kolom di mobile */
+    }
+
+    .project-img {
+        height: 350px; 
     }
 }
